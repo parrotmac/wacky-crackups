@@ -1,5 +1,8 @@
 .idea/
 
+/public/stylesheets/*.css
+/public/stylesheets/*.css.map
+
 # Logs
 logs
 *.log
