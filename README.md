@@ -14,3 +14,6 @@ Steps:
 3. Install: `npm install`
 4. Run: `npm start`
 5. Visit: [http://localhost:3000](http://localhost:3000)
+
+### Hints
+- Have something else running on port 3000? Use `PORT=3030 npm start` to specify `3030` as an alternate port
