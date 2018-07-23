@@ -1,7 +1,10 @@
 @import "colors.scss";
 
 body {
-  background-color: $background-base-color;
+  background-image: url("/img/bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
   // TODO: Use Google Fonts
   font: 14px sans-serif;
 }
