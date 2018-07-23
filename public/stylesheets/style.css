@@ -3,7 +3,9 @@ This file shouldn't be included directly into HTML. Rather, use `@import "colors
 access to the contents of this file.
  */
 body {
-  background-color: #6da992;
+  background-image: url("/img/bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
   font: 14px sans-serif; }
 
 a {
