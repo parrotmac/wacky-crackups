@@ -1,0 +1,30 @@
+// Applies to all <nav> elements
+nav {
+  /* TODO: Add something...? */
+
+  // Unordered list within in <nav> element
+  ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+
+    // Styles for the LIs inside the UL
+    li {
+
+      // This specific stuff is mostly useful for colors
+      // Browsers *really* like links to be blue and purple, so that's why this is necessary only for colors
+      a, a:link, a:visited {
+        color: #FFFFFF;
+      }
+
+      // Use this to for link styling for pretty much anything other than colors
+      a {
+        // Block display makes padding apply to the vertical/y-axis
+        display: block;
+
+        // Using padding on the link expands the clickable area vs using margin or adding padding to the enclosing <li>
+        padding: 20px;
+      }
+    }
+  }
+}

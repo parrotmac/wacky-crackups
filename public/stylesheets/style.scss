@@ -1,0 +1,11 @@
+@import "colors.scss";
+
+body {
+  background-color: $background-base-color;
+  // TODO: Use Google Fonts
+  font: 14px sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
