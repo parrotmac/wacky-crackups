@@ -1,30 +1,34 @@
 // Applies to all <nav> elements
 nav {
   /* TODO: Add something...? */
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  align-content: center;
 
-  // Unordered list within in <nav> element
-  ul {
-    list-style: none;
+  > a {
+    font-size: 20px;
+    align-content: center;
+  }
+  a, a:link, a:visited {
+    color: #FFFFFF;
+  }
+
+  a {
+    display: block;
+    padding: 20px;
+  }
+
+
+  .links {
     display: flex;
-    padding: 0;
+    justify-content: flex-end;
+    margin-top: 5px;
 
-    // Styles for the LIs inside the UL
-    li {
-
-      // This specific stuff is mostly useful for colors
-      // Browsers *really* like links to be blue and purple, so that's why this is necessary only for colors
-      a, a:link, a:visited {
-        color: #FFFFFF;
-      }
-
-      // Use this to for link styling for pretty much anything other than colors
-      a {
-        // Block display makes padding apply to the vertical/y-axis
-        display: block;
-
-        // Using padding on the link expands the clickable area vs using margin or adding padding to the enclosing <li>
-        padding: 20px;
-      }
+    a:hover {
+      background-color: rgba(128, 128, 128, 0.3);
     }
+
   }
 }
