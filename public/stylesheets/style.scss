@@ -11,9 +11,14 @@ body {
 }
  .whitebox{
    background-color: #FFFFFF;
-   border-radius: 25px;
+   border-radius: 15px;
    padding: 35px;
 
+
+ }
+
+ .drop-shadow{
+   box-shadow: 0 0 20px 1px #3434349c;
  }
 
  .home {
