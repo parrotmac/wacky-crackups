@@ -14,4 +14,8 @@ router.get('/blog', function(req, res, next) {
     res.render('blog', { title: 'Blog' });
 });
 
+router.get('/tandc', function(req, res, next) {
+    res.render('tandc', { title: 'Terms and Conditions' });
+});
+
 module.exports = router;
