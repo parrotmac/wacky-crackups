@@ -18,4 +18,8 @@ router.get('/tandc', function(req, res, next) {
     res.render('tandc', { title: 'Terms and Conditions' });
 });
 
+router.get('/characters', function(req, res, next) {
+    res.render('characters', { title: 'Characters' })
+});
+
 module.exports = router;
