@@ -1,6 +1,16 @@
+.characters{
+  div{
+    display: flex;
+    img {
+      margin: auto;
+      max-width: 100%;
+      display:block;
+      height: auto;
+    }
 
-img {
-  max-width: 100%;
-  display:block;
-  height: auto;
+  }
+}
+
+h1{
+  color: #FFFFFF;
 }
