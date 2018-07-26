@@ -1,11 +1,11 @@
 @import "colors.scss";
 
-html, body {
-  //height: 100%;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-  display: flex;
   margin-bottom: 60px;
   flex-direction: column;
   background-image: url("/images/bg.svg");
