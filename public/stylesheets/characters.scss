@@ -1,6 +1,8 @@
 .characters{
   div{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     img {
       margin: auto;
       max-width: 100%;
