@@ -35,8 +35,13 @@ body {
      display: flex;
    }
  }
-
-
+.dino-wrapper{
+  margin-top: 100px;
+  .dino{
+    margin-top: -125px;
+    max-width: 200px;
+  }
+}
 
 a {
   color: #00B7FF;
