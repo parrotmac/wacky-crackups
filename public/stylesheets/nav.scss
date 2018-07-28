@@ -21,11 +21,15 @@ nav.main {
     padding: 20px;
   }
 
+  .big{
+    font-size: 30px;
+  }
+
 
   .links {
     display: flex;
     justify-content: flex-end;
-    margin-top: 5px;
+    margin-top: 10px;
 
     a:hover {
       background-color: rgba(128, 128, 128, 0.3);
