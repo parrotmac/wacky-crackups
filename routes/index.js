@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const fetch = require('node-fetch');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -11,7 +12,36 @@ router.get('/about', function(req, res, next) {
 });
 
 router.get('/blog', function(req, res, next) {
-    res.render('blog', { title: 'Blog' });
+    // TODO: Use env-vars or a conf.json or similar to configure this rather than hard-coding
+    const blogAPIURLBase = 'https://admin.insights.ubuntu.com/wp-json/wp/v2/posts';
+
+    const pageNumber = req.query.page;
+
+    const queryParams = [];
+
+    if(pageNumber !== undefined) {
+        queryParams.push({
+            "key": "page",
+            "value": pageNumber,
+        })
+    }
+
+    let blogListingFinalURL = blogAPIURLBase;
+
+    queryParams.forEach((queryParam, qpIdx) => {
+        const qsSeparator = qpIdx === 0?"?":"&";
+        blogListingFinalURL += `${qsSeparator}${queryParam['key']}=${encodeURIComponent(queryParam['value'])}`;
+    });
+
+    console.log("Fetching", blogListingFinalURL);
+
+    fetch(blogListingFinalURL, {
+        // Fetch cfg here
+    }).then(
+        blogRes => blogRes.json().then(
+            blogJson => res.render('blog', { title: 'Blog', blogPosts: blogJson })
+        )
+    );
 });
 
 router.get('/legal', function(req, res, next) {
