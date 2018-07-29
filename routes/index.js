@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Wacky Crackups' });
+    res.render('index', { title: 'Wacky Crackups' });
 });
 
 router.get('/about', function(req, res, next) {
@@ -15,15 +15,22 @@ router.get('/blog', function(req, res, next) {
     // TODO: Use env-vars or a conf.json or similar to configure this rather than hard-coding
     const blogAPIURLBase = 'https://admin.insights.ubuntu.com/wp-json/wp/v2/posts';
 
-    const pageNumber = req.query.page;
+    let pageNumber = req.query.page;
+    let prevPageNumber = 0;
+    let nextPageNumber = 2;
 
     const queryParams = [];
 
-    if(pageNumber !== undefined) {
+
+    if(pageNumber === undefined) {
+        pageNumber = 1;
+    } else {
         queryParams.push({
             "key": "page",
             "value": pageNumber,
-        })
+        });
+        prevPageNumber = parseInt(pageNumber) - 1;
+        nextPageNumber = parseInt(pageNumber) + 1;
     }
 
     let blogListingFinalURL = blogAPIURLBase;
@@ -39,7 +46,16 @@ router.get('/blog', function(req, res, next) {
         // Fetch cfg here
     }).then(
         blogRes => blogRes.json().then(
-            blogJson => res.render('blog', { title: 'Blog', blogPosts: blogJson })
+            blogJson => res.render('blog', {
+                    title: 'Blog',
+                    blogPosts: blogJson,
+                    pagination: {
+                        next: nextPageNumber,
+                        prev: prevPageNumber,
+                        current: pageNumber
+                    }
+                }
+            )
         )
     );
 });

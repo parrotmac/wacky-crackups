@@ -12,6 +12,21 @@
             </div>
         </div>
     {{/each}}
+    <div class="row">
+        <div class="col">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    {{#if pagination.prev }}
+                        <li class="page-item"><a class="page-link" href="/blog/?page={{pagination.prev}}">Prev</a></li>
+                    {{/if}}
+                    <li class="page-item"><a class="page-link" href="/blog/?page={{pagination.current}}">{{pagination.current}}</a></li>
+                    {{#if pagination.next}}
+                        <li class="page-item"><a class="page-link" href="/blog/?page={{pagination.next}}">Next</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+        </div>
+    </div>
 </div>
 
 
