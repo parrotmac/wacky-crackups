@@ -12,8 +12,7 @@ router.get('/about', function(req, res, next) {
 });
 
 router.get('/blog', function(req, res, next) {
-    // TODO: Use env-vars or a conf.json or similar to configure this rather than hard-coding
-    const blogAPIURLBase = 'https://admin.insights.ubuntu.com/wp-json/wp/v2/posts';
+    const blogAPIURLBase = req.app.get("blogPostsURL");
 
     let pageNumber = req.query.page;
     let prevPageNumber = 0;

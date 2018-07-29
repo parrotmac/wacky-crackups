@@ -37,6 +37,8 @@ app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.set("blogPostsURL", process.env.BLOG_API_URL);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
