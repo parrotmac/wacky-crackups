@@ -45,19 +45,28 @@ router.get('/blog', function(req, res, next) {
     fetch(blogListingFinalURL, {
         // Fetch cfg here
     }).then(
-        blogRes => blogRes.json().then(
-            blogJson => res.render('blog', {
-                    title: 'Blog',
-                    blogPosts: blogJson,
-                    pagination: {
-                        next: nextPageNumber,
-                        prev: prevPageNumber,
-                        current: pageNumber
-                    }
-                }
-            )
-        )
-    );
+        blogRes => {
+            if(blogRes.status === 200) {
+                blogRes.json().then(
+                    blogJson => res.render('blog', {
+                            title: 'Blog',
+                            blogPosts: blogJson,
+                            pagination: {
+                                next: nextPageNumber,
+                                prev: prevPageNumber,
+                                current: pageNumber
+                            }
+                        }
+                    )
+                )
+            } else {
+                return Promise.reject(new Error("Blog posts not found"))
+            }
+        }
+    ).catch(err => {
+        next(err);
+        console.error("Error fetching blog listing", err);
+    })
 });
 
 router.get('/legal', function(req, res, next) {
