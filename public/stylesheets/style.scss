@@ -35,9 +35,20 @@ body {
      display: flex;
    }
  }
-
-
-
+.dino-wrapper{
+  margin-top: 100px;
+  .dino{
+    margin-top: -125px;
+    max-width: 200px;
+  }
+}
+.wacky{
+  font-family: FlawlessFlygirlPB-Regular;
+  color: black;
+}
+.important{
+  font-size: 65px;
+}
 a {
   color: #00B7FF;
 }
