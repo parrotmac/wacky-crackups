@@ -7,7 +7,9 @@
     {{#each blogPosts}}
         <div class="row">
             <div class="col my-3">
-                <h4 class="text-white">{{{this.title.rendered}}}</h4>
+                <h4>
+                    <a class="text-white" href="/blog/posts/{{this.id}}/{{this.slug}}">{{{this.title.rendered}}}</a>
+                </h4>
                 <p class="text-white my-3">{{{this.excerpt.rendered}}}</p>
             </div>
         </div>

@@ -9,6 +9,7 @@ const sassMiddleware = require('node-sass-middleware');
 require('dotenv').config()
 
 const indexRouter = require('./routes/index');
+const blogRouter = require('./routes/blog');
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 
 app.use('/', indexRouter);
+app.use('/blog', blogRouter);
 app.use('/users', usersRouter);
 
 app.set("blogPostsURL", process.env.BLOG_API_URL);
