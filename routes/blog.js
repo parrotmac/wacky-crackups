@@ -2,8 +2,17 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 
+const flattenBlogPost = (postBody) => {
+    let newPostBody = {...postBody};
+    const featuredMedia = newPostBody['_embedded']['wp:featuredmedia'];
+    if(featuredMedia.length > 0) {
+        newPostBody['media_url'] = newPostBody['_embedded']['wp:featuredmedia'][0]['source_url'];
+    }
+    return newPostBody
+};
+
 router.get('/', function(req, res, next) {
-    const blogAPIURLBase = req.app.get("blogPostsURL");
+    const blogAPIURLBase = `${req.app.get("blogPostsURL")}?_embed`;
 
     let pageNumber = req.query.page;
     let prevPageNumber = 0;
@@ -38,16 +47,19 @@ router.get('/', function(req, res, next) {
         blogRes => {
             if(blogRes.status === 200) {
                 blogRes.json().then(
-                    blogJson => res.render('blog', {
-                            title: 'Blog',
-                            blogPosts: blogJson,
-                            pagination: {
-                                next: nextPageNumber,
-                                prev: prevPageNumber,
-                                current: pageNumber
+                    blogJson => {
+                        const sligtlyFlattenedPosts = blogJson.map(post => flattenBlogPost(post));
+                        res.render('blog', {
+                                title: 'Blog',
+                                blogPosts: sligtlyFlattenedPosts,
+                                pagination: {
+                                    next: nextPageNumber,
+                                    prev: prevPageNumber,
+                                    current: pageNumber
+                                }
                             }
-                        }
-                    )
+                        )
+                    }
                 )
             } else {
                 return Promise.reject(new Error("Blog posts not found"))
@@ -63,7 +75,7 @@ router.get('/posts/:id/:slug', function(req, res, next) {
     const blogAPIURLBase = req.app.get("blogPostsURL");
     const blogPostID = req.params.id;
 
-    const blogPostAPIURL = `${blogAPIURLBase}/${blogPostID}`
+    const blogPostAPIURL = `${blogAPIURLBase}/${blogPostID}`;
 
     fetch(blogPostAPIURL, {}).then(
         postRes => postRes.json().then(
@@ -71,7 +83,7 @@ router.get('/posts/:id/:slug', function(req, res, next) {
                 const {title} = postJson;
                 res.render('blogPost', {
                     title: `Blog - ${title['rendered']}`,
-                    blogPost: postJson
+                    blogPost: flattenBlogPost(postJson)
                 })
             }
         )
