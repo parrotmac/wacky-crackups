@@ -10,6 +10,10 @@ router.get('/about', function(req, res, next) {
     res.render('about', { title: 'About' });
 });
 
+router.get('/support', function(req, res, next) {
+    res.render('support', { title: 'Support' });
+});
+
 router.get('/legal', function(req, res, next) {
     res.render('tandc', { title: 'Terms and Conditions' });
 });
