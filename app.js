@@ -42,6 +42,7 @@ app.use('/blog', blogRouter);
 app.use('/users', usersRouter);
 
 app.set("blogPostsURL", process.env.BLOG_API_URL);
+app.set("feedbackEmailAddress", process.env.FEEDBACK_EMAIL_URL);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

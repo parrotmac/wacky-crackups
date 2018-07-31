@@ -12,7 +12,22 @@ router.get('/about', function(req, res, next) {
 
 router.get('/support', function(req, res, next) {
     const thankYou = req.query.thanks !== undefined;
-    res.render('support', { title: 'Support', showThanks: thankYou });
+
+    // This is passed in so that Formspree knows where to redirect back to
+    const thanksReturnURL = req.protocol + '://' + req.get('host') + req.url + "?thanks";
+
+    // Exactly what comes from the .env file, but that could be undefined if it hasn't been set
+    const envFeedbackEmail = req.app.get("feedbackEmailAddress");
+
+    // Sets up feedbackEmail to be "team@saltpeak.design" if envFeedbackEmail is undefined, otherwise uses envFeedbackEmail
+    const feedbackEmail = envFeedbackEmail === undefined?"team@saltpeak.design":envFeedbackEmail;
+
+    res.render('support', {
+        title: 'Support',
+        showThanks: thankYou,
+        thanksReturnURL: thanksReturnURL,
+        feedbackEmail: feedbackEmail,
+    });
 });
 
 router.get('/legal', function(req, res, next) {
