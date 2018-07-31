@@ -30,7 +30,7 @@ Steps:
 ```
 PORT=3030
 BLOG_API_URL=https://admin.insights.ubuntu.com/wp-json/wp/v2/posts
-FEEDBACK_EMAIL_URL=https://formspree.io/<ANY EMAIL ADDRESS GOES HERE>
+FEEDBACK_EMAIL_URL=https://formspree.io/<FEEDBACK DESTINATION EMAIL GOES HERE>
 ```
 
 When running `npm start` this will make the application start on port 3030 instead of 3000, and use the Ubuntu Wordpress blog as the blog data source.
