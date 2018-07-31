@@ -11,7 +11,8 @@ router.get('/about', function(req, res, next) {
 });
 
 router.get('/support', function(req, res, next) {
-    res.render('support', { title: 'Support' });
+    const thankYou = req.query.thanks !== undefined;
+    res.render('support', { title: 'Support', showThanks: thankYou });
 });
 
 router.get('/legal', function(req, res, next) {
