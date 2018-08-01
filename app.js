@@ -16,10 +16,13 @@ const app = express();
 
 // view engine setup
 const expressHandlebarsConfig = {
-  layoutsDir: 'views/layouts/',
+    layoutsDir: 'views/layouts/',
     defaultLayout: 'layout.hbs',
     extname: '.hbs',
-    partialsDir: "views/partials/"
+    partialsDir: "views/partials/",
+    helpers: {
+        dateFormat: require('handlebars-dateformat'),
+    }
 };
 app.engine('hbs', exphbs(expressHandlebarsConfig));
 app.set('view engine', 'hbs');

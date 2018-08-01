@@ -10,7 +10,8 @@
                 <h4>
                     <a class="wacky" href="/blog/posts/{{this.id}}/{{this.slug}}">{{{this.title.rendered}}}</a>
                 </h4>
-                <img class="w-100 fit" src="{{this.media_url}}">
+                <p><small>Posted on: {{dateFormat this.date "dddd, MMMM Do YYYY, h:mm:ss a"}} </small></p>
+                <img class="w-100" src="{{this.media_url}}">
                 <p class="text-white my-3">{{{this.excerpt.rendered}}}</p>
             </div>
         </div>
