@@ -1,16 +1,16 @@
 <div class="container">
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
             <h1>{{title}}</h1>
         </div>
     </div>
     {{#each blogPosts}}
-        <div class="row">
-            <div class="col my-3 whitebox">
+        <div class="row justify-content-center">
+            <div class="col-md-7 my-3 whitebox">
                 <h4>
                     <a class="wacky" href="/blog/posts/{{this.id}}/{{this.slug}}">{{{this.title.rendered}}}</a>
                 </h4>
-                <img class="w-100" src="{{this.media_url}}">
+                <img class="w-100 fit" src="{{this.media_url}}">
                 <p class="text-white my-3">{{{this.excerpt.rendered}}}</p>
             </div>
         </div>
