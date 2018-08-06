@@ -4,32 +4,40 @@
 .calling {
   display: flex;
   justify-content: space-evenly;
-  .app-store {
-    align-items: center;
-    display: flex;
+  flex-wrap: wrap;
+}
+.app-store {
+  align-items: center;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.logo-text{
+  object-fit: contain;
+  height:40px;
+}
+.call-text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  h1,h3{
+    padding: 0;
+    margin: 0;
   }
-  .logo-text{
-    object-fit: contain;
-    height:40px;
-  }
-  .call-text {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    h1,h3{
-      padding: 0;
-      margin: 0;
-    }
-    h1{
-      font-family: FlawlessFlygirlPB-Regular;
-      color: black;
+  @media only screen and (min-width: 1025px) {
+    h1 {
       margin: 0 10px;
     }
-    h3{
-      margin-top: 10px;
-    }
+  }
+  h1{
+    font-family: FlawlessFlygirlPB-Regular;
+    color: black;
+  }
+  h3{
+    margin-top: 10px;
   }
 }
+
 
 .skinny-box {
   @include wacky-box();
