@@ -15,7 +15,7 @@
   .call-text {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
     h1,h3{
       padding: 0;
       margin: 0;
@@ -24,6 +24,9 @@
       font-family: FlawlessFlygirlPB-Regular;
       color: black;
       margin: 0 10px;
+    }
+    h3{
+      margin-top: 10px;
     }
   }
 }
