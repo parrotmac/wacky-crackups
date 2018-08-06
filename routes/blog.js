@@ -83,7 +83,7 @@ router.get('/posts/:id/:slug', function(req, res, next) {
                 const {title} = postJson;
                 res.render('blogPost', {
                     title: `Blog - ${title['rendered']}`,
-                    blogPost: flattenBlogPost(postJson)
+                    blogPost: postJson
                 })
             }
         )
