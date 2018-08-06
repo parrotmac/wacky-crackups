@@ -22,6 +22,7 @@ const expressHandlebarsConfig = {
     partialsDir: "views/partials/",
     helpers: {
         dateFormat: require('handlebars-dateformat'),
+        areEqual: (arg1, arg2) =>  arg1 === arg2,
     }
 };
 app.engine('hbs', exphbs(expressHandlebarsConfig));
