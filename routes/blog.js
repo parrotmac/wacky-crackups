@@ -4,9 +4,13 @@ const fetch = require('node-fetch');
 
 const flattenBlogPost = (postBody) => {
     let newPostBody = {...postBody};
-    const featuredMedia = newPostBody['_embedded']['wp:featuredmedia'];
-    if(featuredMedia.length > 0) {
-        newPostBody['media_url'] = newPostBody['_embedded']['wp:featuredmedia'][0]['source_url'];
+    if ("wp:featuredmedia" in newPostBody['_embedded']) {
+        const featuredMedia = newPostBody['_embedded']['wp:featuredmedia'];
+        if (featuredMedia.length > 0) {
+            newPostBody['media_url'] = newPostBody['_embedded']['wp:featuredmedia'][0]['source_url'];
+        }
+    } else {
+        newPostBody['media_url'] = null;
     }
     return newPostBody
 };
