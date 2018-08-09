@@ -2,20 +2,24 @@
 
 .skinny-box {
   @include wacky-box();
-  padding: 10px;
+  padding: 10px 0;
   margin: 20px 0;
 }
 
 #characterSledWrapper {
   overflow: hidden;
-  .card{
-    flex:0 0 auto;
-    width: auto;
-    height: 500px;
+  #characterSled {
+    display: flex;
+    position: relative;
+    transition: margin-left 25ms linear;
+    .scroll-card {
+      flex:0 0 auto;
+      width: auto;
+      height: 500px;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
-#characterSled {
-  display: flex;
-  position: relative;
-}

@@ -13,28 +13,44 @@ const WackyActionSlide = (slideWrapper, characterSled) => {
     };
 
     let sledPosition = 0;
+    let clampedDelta = 0;
+    let windowWidth = window.innerWidth;
+
+    const _setElementOffset = (el, offset) => {
+        // el.style.transform = `translateX(${offset}px)`;
+        // el.style.left = `${offset}px`;
+
+        // Margin left seems to be the least bad on Android, and doesn't break on iOS
+        el.style.marginLeft = `${offset}px`;
+    };
 
     const setLeftDelta = delta => {
-        const newDelta = sledPosition + delta;
-        const clampedDelta = clamp(newDelta, -getMaxOffset(), 0);
-        console.log(clampedDelta, newDelta, getMaxOffset());
-        characterSled.style.left = `${clampedDelta}px`;
+        clampedDelta = clamp(sledPosition + delta, -getMaxOffset(), 0);
     };
 
-    const getSledLeft = () => {
-        const parsedVal = parseInt(characterSled.style.left);
-        if (characterSled.style.left.indexOf("px") < 0 || parsedVal === "NaN") {
-            return 0;
+    let lastUpdatedDelta = 0;
+    const _updateElementDelta = () => {
+        if(lastUpdatedDelta !== clampedDelta) {
+            _setElementOffset(characterSled, clampedDelta);
+            lastUpdatedDelta = clampedDelta;
         }
-        return parsedVal;
+        window.setTimeout(() => window.requestAnimationFrame(_updateElementDelta), 100);
     };
 
-    var hammertime = new Hammer(characterSled, {
-        direction: Hammer.DIRECTION_HORIZONTAL
+    window.requestAnimationFrame(_updateElementDelta);
+
+    const mc = new Hammer.Manager(characterSled, {});
+    mc.add( new Hammer.Pan({ direction: Hammer.DIRECTION_HORIZONTAL, threshold: 10 }) );
+    mc.on("panstart", () => (sledPosition = clampedDelta));
+    mc.on('panright', evt => setLeftDelta(evt.deltaX));
+    mc.on('panleft', evt => setLeftDelta(evt.deltaX));
+    window.addEventListener("resize", () => {
+        const newWidth = window.innerWidth;
+        if(newWidth !== windowWidth) {
+            windowWidth = newWidth;
+            setLeftDelta(0)
+        }
     });
-    hammertime.on("panstart", () => (sledPosition = getSledLeft()));
-    hammertime.on("pan", evt => setLeftDelta(evt.deltaX));
-    window.addEventListener("resize", () => setLeftDelta(0));
 
     const _imgs = characterSled.querySelectorAll("img");
     const imgs = [].slice.call(_imgs);
