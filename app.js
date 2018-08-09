@@ -40,6 +40,7 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
+app.use(express.static(__dirname + '/node_modules/hammerjs'));
 
 app.use('/', indexRouter);
 app.use('/blog', blogRouter);
