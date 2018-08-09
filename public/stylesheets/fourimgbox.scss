@@ -1,9 +1,13 @@
+@import "mixins.scss";
 
-.scrolling-wrapper{
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  justify-content: space-evenly;
+.skinny-box {
+  @include wacky-box();
+  padding: 10px;
+  margin: 20px 0;
+}
+
+#characterSledWrapper {
+  overflow: hidden;
   .card{
     flex:0 0 auto;
     width: auto;
@@ -11,11 +15,7 @@
   }
 }
 
-
-@import "mixins.scss";
-
-.skinny-box {
-  @include wacky-box();
-  padding: 10px;
-  margin: 20px 0px;
+#characterSled {
+  display: flex;
+  position: relative;
 }
