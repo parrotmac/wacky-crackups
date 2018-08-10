@@ -1,4 +1,5 @@
 @import "colors.scss";
+@import "mixins.scss";
 
 html {
   position: relative;
@@ -8,33 +9,40 @@ html {
 body {
   margin-bottom: 60px;
   flex-direction: column;
-  background-image: url("/images/bg.svg");
-  background-color: #6fdfa3;
-  background-repeat: no-repeat;
-  background-size: cover;
+  //background-image: url("/images/bg.svg");
+  //background-repeat: no-repeat;
+  //background-size: cover;
+  background-color: #71e5ae;
 
   font-family: 'Montserrat', sans-serif;
 }
- .whitebox{
-   background-color: #FFFFFF;
-   border-radius: 15px;
-   padding: 35px;
+
+.whitebox{
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  padding: 35px;
 
 
- }
+}
 
- .drop-shadow{
-   box-shadow: 0 0 20px 1px #3434349c;
- }
+.skinny-box {
+  @include wacky-box();
+  padding: 10px;
+  margin: 20px 0px;
+}
 
- .home {
-   text-align: center;
-   .bodyimagefaces{
-     margin-left: auto;
-     margin-right: auto;
-     display: flex;
-   }
- }
+.drop-shadow{
+  box-shadow: 0 0 20px 1px #3434349c;
+}
+
+.home {
+  text-align: center;
+  .bodyimagefaces{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+  }
+}
 .dino-wrapper{
   margin-top: 100px;
   .dino{

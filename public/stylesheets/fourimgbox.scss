@@ -1,25 +1,20 @@
 @import "mixins.scss";
 
-.skinny-box {
-  @include wacky-box();
-  padding: 10px 0;
-  margin: 20px 0;
-}
-
 #characterSledWrapper {
+
   overflow: hidden;
+  padding: 10px 0;
+
   #characterSled {
+
     display: flex;
+    justify-content: space-between;
     position: relative;
-    transition: margin-left 25ms linear;
+
     .scroll-card {
-      flex:0 0 auto;
-      width: auto;
       height: 500px;
       display: block;
-      margin: 0;
-      padding: 0;
     }
+
   }
 }
-

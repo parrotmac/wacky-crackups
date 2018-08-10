@@ -17,27 +17,13 @@ const WackyActionSlide = (slideWrapper, characterSled) => {
     let windowWidth = window.innerWidth;
 
     const _setElementOffset = (el, offset) => {
-        // el.style.transform = `translateX(${offset}px)`;
-        // el.style.left = `${offset}px`;
-
-        // Margin left seems to be the least bad on Android, and doesn't break on iOS
         el.style.marginLeft = `${offset}px`;
     };
 
     const setLeftDelta = delta => {
         clampedDelta = clamp(sledPosition + delta, -getMaxOffset(), 0);
+        _setElementOffset(characterSled, clampedDelta);
     };
-
-    let lastUpdatedDelta = 0;
-    const _updateElementDelta = () => {
-        if(lastUpdatedDelta !== clampedDelta) {
-            _setElementOffset(characterSled, clampedDelta);
-            lastUpdatedDelta = clampedDelta;
-        }
-        window.setTimeout(() => window.requestAnimationFrame(_updateElementDelta), 100);
-    };
-
-    window.requestAnimationFrame(_updateElementDelta);
 
     const mc = new Hammer.Manager(characterSled, {});
     mc.add( new Hammer.Pan({ direction: Hammer.DIRECTION_HORIZONTAL, threshold: 10 }) );
