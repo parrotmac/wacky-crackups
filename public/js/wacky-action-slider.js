@@ -14,6 +14,7 @@ const WackyActionSlide = (slideWrapper, characterSled) => {
 
     let sledPosition = 0;
     let clampedDelta = 0;
+    let velocity = 0;
     let windowWidth = window.innerWidth;
 
     const _setElementOffset = (el, offset) => {
@@ -21,15 +22,27 @@ const WackyActionSlide = (slideWrapper, characterSled) => {
     };
 
     const setLeftDelta = delta => {
-        clampedDelta = clamp(sledPosition + delta, -getMaxOffset(), 0);
+        const instanceDelta = (delta + sledPosition);
+        const velocityAdjustedDelta = instanceDelta + (delta * 0.5); // TODO: Add scroll effect using velocity
+        clampedDelta = clamp(velocityAdjustedDelta, -getMaxOffset(), 0);
         _setElementOffset(characterSled, clampedDelta);
+    };
+
+    const panHandler = (evt) => {
+        if(evt.velocityX > velocity) {
+            velocity = evt.velocityX;
+        }
+        setLeftDelta(evt.deltaX);
     };
 
     const mc = new Hammer.Manager(characterSled, {});
     mc.add( new Hammer.Pan({ direction: Hammer.DIRECTION_HORIZONTAL, threshold: 10 }) );
-    mc.on("panstart", () => (sledPosition = clampedDelta));
-    mc.on('panright', evt => setLeftDelta(evt.deltaX));
-    mc.on('panleft', evt => setLeftDelta(evt.deltaX));
+    mc.on("panstart", () => {
+        velocity = 0;
+        sledPosition = clampedDelta;
+    });
+    mc.on('panleft', panHandler);
+    mc.on('panright', panHandler);
     window.addEventListener("resize", () => {
         const newWidth = window.innerWidth;
         if(newWidth !== windowWidth) {
