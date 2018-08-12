@@ -16,7 +16,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - IMAGE_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
-      - printf '[{"name":"%s","imageUri":"%s"}]' "wacky-crackups-web" $IMAGE_URI > imagedefinitions.json
+      - printf '[{"name":"%s","imageUri":"%s"}]' "wacky-crackups-website" $IMAGE_URI > imagedefinitions.json
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
 artifacts:
     files: imagedefinitions.json
