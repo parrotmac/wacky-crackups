@@ -40,12 +40,13 @@ Note: This file is set to be ignored by Git since different people might want it
 # Deployment
 ### Overview
 This is a list of the services that are currently in use. It would be a good idea to migrate all of this to AWS-Managed or commercial services as time and need permit. Commercial (paid) alternatives are available as drop-in replacements for every part, meaning migration can be done piece-by-piece or alltogether.
-**Origin Repo:** `https://github.com/parrotmac/wacky-crackups.git`
-**Builds:** "Little Blue" container builder [https://lb.stag9.com](https://lb.stag9.com)
-**Registry:** "Thing Registry" container registry [https://thingregistry.com/](https://thingregistry.com/)
-**Deployments:** Deployed to `ec2-54-173-112-51.compute-1.amazonaws.com`
-**Run:** Run as Docker container in a Docker-Compose setup
-**DNS:** Route9 via Story Startups AWS Console
+
+- **Origin Repo:** `https://github.com/parrotmac/wacky-crackups.git`
+- **Builds:** "Little Blue" container builder [https://lb.stag9.com](https://lb.stag9.com)
+- **Registry:** "Thing Registry" container registry [https://thingregistry.com/](https://thingregistry.com/)
+- **Deployments:** Deployed to `ec2-54-173-112-51.compute-1.amazonaws.com`
+- **Run:** Run as Docker container in a Docker-Compose setup
+- **DNS:** Route9 via Story Startups AWS Console
 
 ### Push
 On push to origin repo, a build is triggered. LittleBlue currently doesn't show very much information about the build process. If there's a probelem with the code it may fail to build. After build it pushed to the Docker registry at `thingregistry.com/parrotmac-wacky-crackups`.
