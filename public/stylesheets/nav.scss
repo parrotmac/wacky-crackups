@@ -23,10 +23,16 @@ nav.main {
   a {
     display: block;
     padding: 20px;
+    margin-top: 25px;
   }
 
   .big{
     font-size: 30px;
+  }
+
+  .logo{
+    max-height: 125px;
+    padding-left: 75px;
   }
 
 
@@ -35,9 +41,9 @@ nav.main {
     justify-content: flex-end;
     margin-top: 10px;
 
-    a:hover {
-      background-color: rgba(128, 128, 128, 0.3);
-    }
+   // a:hover {
+    //  background-color: rgba(128, 128, 128, 0.3);
+    //}
   }
 }
 
