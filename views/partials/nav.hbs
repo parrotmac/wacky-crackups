@@ -1,7 +1,14 @@
 <nav class="main">
-    <div>
+    <header class="wacky-header">
         <img  class="logo" src="/images/stacked-logo.png" href="/" class="wacky big pb-0">
-    </div>
+        <div class="burger-wrapper"><!-- Controls major positioning of burger -->
+            <div class="burger-bun"><!-- Contains lines -->
+                <div class="burger-patty"></div>
+                <div class="burger-patty"></div>
+                <div class="burger-patty"></div>
+            </div>
+        </div>
+    </header>
     <div class="links">
         <a href="/characters" class="pt-0 pt-md-3 {{#if (areEqual currentPath '/characters')}}active{{/if}}">Characters</a>
         <a href="/blog" class="pt-0 pt-md-3 {{#if (startsWith currentPath '/blog')}}active{{/if}}">Blog</a>

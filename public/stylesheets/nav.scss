@@ -1,3 +1,12 @@
+/*
+These probably appear as broken in your editor, but they should 'just work'
+It'd be great if module authors could support standard functions, but this is what we get instead
+yay
+ */
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
 // Applies to all <nav> elements
 nav.main {
   /* TODO: Add something...? */
@@ -32,7 +41,11 @@ nav.main {
 
   .logo{
     max-height: 125px;
-    padding-left: 75px;
+    padding-left: 25px;
+
+    @include media-breakpoint-up(md) {
+      padding-left: 75px;
+    }
   }
 
 
@@ -47,4 +60,49 @@ nav.main {
   }
 }
 
+header.wacky-header {
+  @include media-breakpoint-up(md) {
+    width: auto;
+  }
+  display: flex;
+  width: 100%;
+}
+
+$burger-size: 60px;
+$burger-patty-height: 6px;
+
+.burger-wrapper {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+
+  width: 100%;
+  padding-right: 20px;
+
+  .burger-bun {
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: $burger-size;
+    width: $burger-size;
+    padding: 0 5px;
+
+    background-color: black;
+
+    .burger-patty {
+      display: block;
+
+      height: $burger-patty-height;
+      width: 100%;
+
+      background-color: white;
+    }
+  }
+
+}
 
