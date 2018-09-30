@@ -156,7 +156,6 @@ header.wacky-header {
       width: ($burger-size - (2 * $burger-patty-margin));
       left: $burger-patty-margin;
 
-      background-color: white;
       transition: all $burger-trans-duration $burger-trans-easing;
 
       &:nth-child(1) {
