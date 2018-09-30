@@ -23,6 +23,12 @@ const expressHandlebarsConfig = {
     helpers: {
         dateFormat: require('handlebars-dateformat'),
         areEqual: (arg1, arg2) =>  arg1 === arg2,
+        startsWith: (arg1, arg2) => {
+            if (arg1 === undefined || arg2 === undefined) {
+                return false;
+            }
+            return arg1.indexOf(arg2) === 0
+        },
     }
 };
 app.engine('hbs', exphbs(expressHandlebarsConfig));
