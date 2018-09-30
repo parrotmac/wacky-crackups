@@ -8,7 +8,7 @@ yay
 @import "bootstrap/scss/mixins/breakpoints";
 
 $mobile-x-margins: 25px;
-$desktop-x-margins: 75px;
+$desktop-x-margins: 0;
 
 
 @mixin patty-animation-throwingStar {
