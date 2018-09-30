@@ -43,11 +43,20 @@ body {
     display: flex;
   }
 }
-.dino-wrapper{
+@media only screen and (min-width: 1025px) {
+  .dino-wrapper {
+    margin-top: 100px;
+    .dino {
+      margin-top: -150px;
+      max-width: 250px;
+    }
+  }
+}
+.dino-wrapper {
   margin-top: 100px;
-  .dino{
-    margin-top: -150px;
-    max-width: 250px;
+  .dino {
+    margin-top: -75px;
+    max-width: 150px;
   }
 }
 .wacky{
@@ -68,4 +77,8 @@ body {
 .hyper{
   color:  rgb(86, 135, 117);
   font-weight: bold;
+}
+
+.elephant{
+  max-width: 200px;
 }
