@@ -1,14 +1,92 @@
+//noinspection CssUnknownTarget
+@import "bootstrap/scss/functions";
+//noinspection CssUnknownTarget
+@import "bootstrap/scss/variables";
+//noinspection CssUnknownTarget
+@import "bootstrap/scss/mixins/breakpoints";
 
-.chars {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+$char-img-desktop-x-padding: 60px;
+$char-img-desktop-y-padding: 20px;
 
-  .pic{
-    margin: auto;
-    max-width: 100%;
-    display:block;
-    height: 300px;
+@mixin padding-x($paddingVal) {
+  padding-left: $paddingVal;
+  padding-right: $paddingVal;
+}
 
+@mixin padding-y($paddingVal) {
+  padding-top: $paddingVal;
+  padding-bottom: $paddingVal;
+}
+
+@mixin character-padding($base-x-padding: 0, $base-y-padding: 0, $addDesktopX: 0, $addDesktopY: 0) {
+
+  @include padding-x($base-x-padding);
+  @include padding-y($base-y-padding);
+
+  @include media-breakpoint-up(md) {
+    @include padding-x($base-x-padding + $addDesktopX);
+    @include padding-y($base-y-padding + $addDesktopY);
   }
+
+}
+
+.tc-row {
+
+  /* Bootstrap has a negative margin on rows to compensate for extra padding on columns */
+  margin: 0;
+
+  .tc-col {
+    display: flex;
+    align-items: center;
+
+    /* Bootstrap has too much padding */
+    padding-left: 0;
+    padding-right: 0;
+
+    &.tc-col-imgs {
+      margin: 0;
+    }
+    &.tc-col-text {
+      justify-content: center; /* Keep text wrapper centered */
+      align-items: flex-start; /* Keep text at top */
+    }
+
+    .tc-img {
+      height: auto;
+      width: auto;
+      max-width: 100%;
+
+      margin: 0;
+      @include media-breakpoint-up(md) {
+
+      }
+    }
+    #tc-dino {
+      @include character-padding(12px, 0, $char-img-desktop-x-padding, $char-img-desktop-y-padding);
+    }
+    #tc-elephant {
+      @include character-padding(0, 0, $char-img-desktop-x-padding, $char-img-desktop-y-padding);
+    }
+    #tc-cowgirl {
+      @include character-padding(3px, 0, $char-img-desktop-x-padding, $char-img-desktop-y-padding);
+    }
+
+    .tc-subtext {
+      color: white;
+      text-align: center;
+      font-weight: bolder;
+
+      &>h4 {
+        font-weight: bolder;
+      }
+
+      &>p {
+        display: none;
+        @include media-breakpoint-up(md) {
+          display: inline;
+        }
+      }
+    }
+  }
+
 }

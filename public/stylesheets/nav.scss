@@ -1,10 +1,8 @@
-/*
-These probably appear as broken in your editor, but they should 'just work'
-It'd be great if module authors could support standard functions, but this is what we get instead
-yay
- */
+//noinspection CssUnknownTarget
 @import "bootstrap/scss/functions";
+//noinspection CssUnknownTarget
 @import "bootstrap/scss/variables";
+//noinspection CssUnknownTarget
 @import "bootstrap/scss/mixins/breakpoints";
 
 $mobile-x-margins: 25px;
@@ -25,18 +23,23 @@ $desktop-x-margins: 0;
   opacity: 0.0;
 }
 
+@mixin patty-animation-shrinkLeft {
+  transform: rotateY(90deg);
+}
 
-$patty-duration-multiplier: 2;
+
+$patty-duration-multiplier: 1;
 @mixin patty-animation {
   //@include patty-animation-throwingStar();
   //@include patty-animation-fadeInOut();
   @include patty-animation-spinFade();
+  //@include patty-animation-shrinkLeft();
 }
 
 $burger-size: 60px;
 $burger-patty-height: 6px;
 $burger-patty-margin: 5px;
-$burger-trans-easing: linear;
+$burger-trans-easing: ease-in-out;
 $burger-trans-duration: 125ms;
 
 
@@ -110,6 +113,12 @@ header.wacky-header {
   }
   display: flex;
   width: 100%;
+
+  &>a {
+    // Bad hack to get alignment right
+    height: 120px;
+  }
+
 }
 
 .burger-wrapper {
@@ -165,8 +174,8 @@ header.wacky-header {
 
       &:nth-child(2) {
         top: ($burger-size/2) - ($burger-patty-height/2);
-
         transition: all ($burger-trans-duration * $patty-duration-multiplier) $burger-trans-easing;
+        //transform-origin: left;
       }
 
       &:nth-child(3) {
