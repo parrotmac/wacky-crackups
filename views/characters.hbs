@@ -1,25 +1,14 @@
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>Characters</h1>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-10">
-            <div class="row justify-content-center characters">
-                {{#each characters}}
-                    <div class="col-6 col-md-4">
-                        <img src="{{this.image_url}}">
-                        <p class="text-white name my-3">{{this.name}}</p>
-                    </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="m-0 col-lg-10 col-sm-10">
-            {{>calltoaction}}
-        </div>
-    </div>
+<div class="col">
+    <h1>Characters</h1>
 </div>
 
+<div class="row justify-content-center characters">
+    {{#each characters}}
+        <div class="col-6 col-md-4">
+            <img src="{{this.image_url}}">
+            <p class="text-white name my-3">{{this.name}}</p>
+        </div>
+    {{/each}}
+</div>
+
+{{>calltoaction}}

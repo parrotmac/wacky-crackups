@@ -1,14 +1,12 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10 whitebox space">
-            <h3 class="wacky">{{blogPost.title.rendered}}</h3>
-            <hr>
-            <article>
-                {{{blogPost.content.rendered}}}
-            </article>
-            <br>
-            <h5 class="wacky">Comments</h5>
-            {{>disqus}}
-        </div>
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 blog-post">
+        <h3 class="wacky">{{{blogPost.title.rendered}}}</h3>
+        <hr>
+        <article>
+            {{{blogPost.content.rendered}}}
+        </article>
+        <br>
+        <h5 class="wacky">Comments</h5>
+        {{>disqus}}
     </div>
 </div>

@@ -1,5 +1,12 @@
-@mixin wacky-box(){
-  border-radius: 8px;
+@mixin wacky-box() {
+  border-radius: 6px;
   background-color: #FFFFFF;
 }
 
+@mixin crackup-font() {
+  font-family: FlawlessFlygirlPB-Regular, sans-serif;
+}
+
+@mixin montserrat-font() {
+  font-family: Montserrat, Helvetica, sans-serif;
+}

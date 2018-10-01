@@ -1,0 +1,114 @@
+//noinspection CssUnknownTarget
+@import "bootstrap/scss/functions";
+//noinspection CssUnknownTarget
+@import "bootstrap/scss/variables";
+//noinspection CssUnknownTarget
+@import "bootstrap/scss/mixins/breakpoints";
+@import "mixins.scss";
+$talking-text-color: rgb(86, 135, 117);
+$copy-y-spacing: 35px;
+
+$dino-head-offset: 80px;
+$dino-head-desktop-offset-delta: 20px;
+$dino-head-size: 120px;
+$dino-head-desktop-size-delta: 80px;
+
+@mixin wacky-colored {
+  color: $talking-text-color;
+}
+
+.main-page-wrapper {
+  @include wacky-box();
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin-top: $copy-y-spacing + $dino-head-offset;
+  padding-bottom: 20px;
+
+  .floating-dino-head {
+    height: $dino-head-size;
+    width: $dino-head-size;
+    @include media-breakpoint-up(md) {
+      height: $dino-head-size + $dino-head-desktop-size-delta;
+      width: $dino-head-size + $dino-head-desktop-size-delta;
+    }
+    position: relative;
+    top: -($dino-head-offset);
+  }
+
+  /* <article> */
+  .main-page-copy {
+
+    margin-top: -($dino-head-offset/1.25);
+    @include media-breakpoint-up(md) {
+      margin-top: -(($dino-head-offset + $dino-head-desktop-offset-delta)/1.5);
+    }
+
+    padding: 0 20px;
+    @include media-breakpoint-up(md) {
+      padding: 0 60px;
+    }
+
+    .copy-tagline {
+      @include wacky-colored();
+      font-size: 65px;
+    }
+
+
+    .copy-heads-n-points {
+      display: flex;
+      flex-direction: column;
+      @include media-breakpoint-up(md) {
+        flex-direction: row;
+      }
+
+
+      .selling-points {
+        text-align: left;
+        font-weight: bold;
+        @include montserrat-font();
+        > p {
+          margin: 0;
+        }
+      }
+
+    }
+    .copy-head {
+
+    }
+    .copy-head-dino {
+      display: none;
+      @include media-breakpoint-up(md) {
+        display: block;
+      }
+    }
+    .copy-head-cowgirl {
+      >img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    .copy-head-elephant{
+      >img {
+        display: block;
+        margin: 0 auto;
+        max-width: 180px;
+      }
+    }
+
+
+    .talking {
+      @include montserrat-font();
+      font-weight: bold;
+      font-style: italic;
+      @include wacky-colored();
+      font-size: 20px;
+    }
+    .inline-copy-link {
+      @include wacky-colored();
+      font-weight: bold;
+    }
+  }
+}

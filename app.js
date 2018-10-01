@@ -24,6 +24,7 @@ const expressHandlebarsConfig = {
         dateFormat: require('handlebars-dateformat'),
         areEqual: (arg1, arg2) =>  arg1 === arg2,
         startsWith: (arg1, arg2) => {
+            console.error(arg1, arg2);
             if (arg1 === undefined || arg2 === undefined) {
                 return false;
             }
@@ -49,9 +50,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 app.use(express.static(__dirname + '/node_modules/hammerjs'));
 
-app.use('/', indexRouter);
-app.use('/blog', blogRouter);
-app.use('/users', usersRouter);
+const currentPathMiddleware = (req, res, next) => {
+    res.locals.currentPath = req.originalUrl;
+    next();
+};
+
+app.use('/', currentPathMiddleware, indexRouter);
+app.use('/blog', currentPathMiddleware, blogRouter);
+app.use('/users', currentPathMiddleware, usersRouter);
 
 app.set("blogPostsURL", process.env.BLOG_API_URL);
 app.set("feedbackEmailAddress", process.env.FEEDBACK_EMAIL_URL);
