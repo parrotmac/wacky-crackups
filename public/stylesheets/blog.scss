@@ -1,15 +1,27 @@
 @import "colors.scss";
+@import "mixins";
+
+.blog-post-preview {
+  padding: 15px;
+  @include wacky-box;
+
+  .read-more-link {
+    @include montserrat-font;
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+
+.blog-post {
+  padding: 15px;
+  @include wacky-box;
+  margin-bottom: 40px;
+}
 
 article {
   a, a:link, a:visited {
     color: $primary-text-color;
   }
-}
-.less_space{
-  margin-top: -16px;
-}
-.space{
-  margin-bottom: 40px;
 }
 
 .fit{

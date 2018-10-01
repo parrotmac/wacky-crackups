@@ -1,9 +1,9 @@
 @import "mixins.scss";
 
 #characterSledWrapper {
-
+  @include wacky-box();
   overflow: hidden;
-  padding: 10px 0;
+  padding: 8px;
 
   #characterSled {
 
@@ -11,9 +11,18 @@
     justify-content: space-between;
     position: relative;
 
+    .scroll-card-img {
+      height: 340px;
+    }
     .scroll-card {
-      height: 500px;
       display: block;
+      padding-left: 8px;
+    }
+    &>:first-child {
+      padding-left: 0;
+    }
+    &>:last-child {
+      padding-right: 16px;
     }
 
   }

@@ -5,7 +5,7 @@
 //noinspection CssUnknownTarget
 @import "bootstrap/scss/mixins/breakpoints";
 
-$mobile-x-margins: 25px;
+$mobile-x-margins: 0;
 $desktop-x-margins: 0;
 
 
@@ -64,6 +64,8 @@ nav.nav-main {
     display: none;
     flex-direction: column;
     width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
 
     @include media-breakpoint-up(md) {
       display: flex;
@@ -74,13 +76,17 @@ nav.nav-main {
       display: flex;
     }
 
-    justify-content: flex-end;
-    margin-top: 10px;
 
     a {
       display: block;
-      padding: 20px;
-      margin-top: 25px;
+      padding: 5px;
+      margin-top: 20px;
+
+      @include media-breakpoint-up(md) {
+        font-size: 16px;
+        padding: 20px;
+        margin-top: 25px;
+      }
 
       font-weight: bold;
       font-size: 20px;
@@ -97,7 +103,7 @@ nav.nav-main {
 
     .accent-line {
       display: none;
-      margin: 0 25px 25px 25px;
+      margin: 25px;
       border-top: 3px solid white;
     }
     &.open >.accent-line {
@@ -116,7 +122,7 @@ header.wacky-header {
 
   &>a {
     // Bad hack to get alignment right
-    height: 120px;
+    height: 110px;
   }
 
 }

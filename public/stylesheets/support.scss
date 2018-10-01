@@ -1,0 +1,6 @@
+@import "mixins";
+
+.support-main, .support-sub, .support-thanks {
+  @include wacky-box;
+  padding: 15px;
+}

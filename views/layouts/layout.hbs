@@ -4,14 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Montserrat');
-    </style>
-    <style type="text/css">
-        .FlawlessFlygirlPB-Regular { font-family: FlawlessFlygirlPB-Regular; }
-    </style>
-    <link rel="stylesheet" type="text/css" href="/fonts/MyFontsWebfontsKit.css"/>
     <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/fonts/MyFontsWebfontsKit.css"/>
+    <style type="text/css">
+        .FlawlessFlygirlPB-Regular { font-family: FlawlessFlygirlPB-Regular, sans-serif; }
+    </style>
     <link href="/stylesheets/popup_video.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -19,11 +17,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/nav.css' />
     <link rel='stylesheet' href='/stylesheets/footer.css' />
-    <link rel='stylesheet' href='/stylesheets/calltoaction.css' />
+    <link rel='stylesheet' href='/stylesheets/call-to-action.css' />
     <link rel='stylesheet' href='/stylesheets/fourimgbox.css' />
     <link rel='stylesheet' href='/stylesheets/threecharacters.css' />
     <link rel='stylesheet' href='/stylesheets/tandc.css' />
+    <link rel='stylesheet' href='/stylesheets/about.css' />
     <link rel='stylesheet' href='/stylesheets/characters.css' />
+    <link rel='stylesheet' href='/stylesheets/support.css' />
     <link rel='stylesheet' href='/stylesheets/blog.css' />
     <link rel='stylesheet' href='/stylesheets/feedback.css' />
     <link rel="icon" type="image/png" sizes="32x32" href="/images/WC_FAVICON_32px.png">
@@ -32,9 +32,28 @@
 </head>
 
 <body>
-{{> nav }}
-{{{body}}}
-{{> footer }}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            {{> nav }}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            {{{body}}}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            {{> footer }}
+        </div>
+    </div>
+</div>
 <script src="/js/nav.js"></script>
 <script src="/js/file-validation.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

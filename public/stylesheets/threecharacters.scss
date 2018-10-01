@@ -5,7 +5,7 @@
 //noinspection CssUnknownTarget
 @import "bootstrap/scss/mixins/breakpoints";
 
-$char-img-desktop-x-padding: 60px;
+$char-img-desktop-x-padding: 30px;
 $char-img-desktop-y-padding: 20px;
 
 @mixin padding-x($paddingVal) {
@@ -78,10 +78,12 @@ $char-img-desktop-y-padding: 20px;
 
       &>h4 {
         font-weight: bolder;
+        margin: 0;
       }
 
       &>p {
         display: none;
+        font-size: 14px;
         @include media-breakpoint-up(md) {
           display: inline;
         }

@@ -1,4 +1,3 @@
-@import "colors.scss";
 @import "mixins.scss";
 
 html {
@@ -9,76 +8,13 @@ html {
 body {
   margin-bottom: 60px;
   flex-direction: column;
-  //background-image: url("/images/rough-background.png");
-  background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgb(110, 167, 134) ;
-
-  font-family: 'Montserrat', sans-serif;
+  background: rgb(110, 167, 134) no-repeat;
+  @include montserrat-font();
 }
 
-.whitebox{
-  background-color: #FFFFFF;
-  border-radius: 15px;
-  padding: 35px;
-
-
-}
-
-.skinny-box {
-  @include wacky-box();
-  padding: 10px;
-  margin: 20px 0px;
-}
-
-.drop-shadow{
-  box-shadow: 0 0 20px 1px #3434349c;
-}
-
-.home {
-  text-align: center;
-  .bodyimagefaces{
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-  }
-}
-@media only screen and (min-width: 1025px) {
-  .dino-wrapper {
-    margin-top: 100px;
-    .dino {
-      margin-top: -150px;
-      max-width: 250px;
-    }
-  }
-}
-.dino-wrapper {
-  margin-top: 100px;
-  .dino {
-    margin-top: -75px;
-    max-width: 150px;
-  }
-}
-.wacky{
-  font-family: FlawlessFlygirlPB-Regular;
+/* TODO: Turn into a mixin() */
+.wacky {
+  @include crackup-font();
   color: black;
-}
-.important{
-  font-size: 65px;
-}
-
-.talking{
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  font-style: italic;
-  color:  rgb(86, 135, 117);
-  font-size: 20px;
-}
-.hyper{
-  color:  rgb(86, 135, 117);
-  font-weight: bold;
-}
-
-.elephant{
-  max-width: 200px;
 }
