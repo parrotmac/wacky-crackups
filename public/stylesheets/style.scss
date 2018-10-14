@@ -13,6 +13,10 @@ body {
   @include montserrat-font();
 }
 
+.page-title {
+  @include page-title;
+}
+
 /* TODO: Turn into a mixin() */
 .wacky {
   @include crackup-font();

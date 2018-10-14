@@ -1,11 +1,6 @@
 @import "colors.scss";
 @import "mixins.scss";
 
-.blog-page-title {
-  @include crackup-font;
-  color: black;
-}
-
 .blog-page-subtitle {
   @include montserrat-font;
   font-weight: bold;

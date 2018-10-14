@@ -10,3 +10,10 @@
 @mixin montserrat-font() {
   font-family: Montserrat, Helvetica, sans-serif;
 }
+
+@mixin page-title {
+  @include montserrat-font;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+}
