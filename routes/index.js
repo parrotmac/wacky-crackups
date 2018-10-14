@@ -37,52 +37,52 @@ router.get('/legal', function(req, res, next) {
 router.get('/characters', function(req, res, next) {
     const characters = [
         {
-            name: 'Bunny',
+            name: 'Sis Boom Bunny',
             catch_phrase: '',
             image_url: '/images/character-buttons/BUNNY23.png'
         },
         {
-            name: 'Cat',
+            name: 'Wussy Cat',
             catch_phrase: '',
             image_url: '/images/character-buttons/CAT23.png'
         },
         {
-            name: 'Cave Man',
+            name: 'Urg',
             catch_phrase: '',
             image_url: '/images/character-buttons/CAVEMAN23.png'
         },
         {
-            name: 'Cow Girl',
+            name: 'Sand Hill Sara',
             catch_phrase: '',
             image_url: '/images/character-buttons/COWGIRL23.png'
         },
         {
-            name: 'Dino',
+            name: 'Triggasaurus',
             catch_phrase: '',
             image_url: '/images/character-buttons/DINO23.png'
         },
         {
-            name: 'Elephant',
+            name: 'Packy D',
             catch_phrase: '',
             image_url: '/images/character-buttons/ELEPHANT23.png'
         },
         {
-            name: 'Flamingo',
+            name: 'Flominga',
             catch_phrase: '',
             image_url: '/images/character-buttons/FLAMINGO23.png'
         },
         {
-            name: 'Mouse',
+            name: 'Nibbles',
             catch_phrase: '',
             image_url: '/images/character-buttons/MOUSE23.png'
         },
         {
-            name: 'Superhero',
+            name: 'Captain Crackup',
             catch_phrase: '',
             image_url: '/images/character-buttons/SUPERHERO23.png'
         },
         {
-            name: 'Turtle',
+            name: 'Turtleneck',
             catch_phrase: '',
             image_url: '/images/character-buttons/TURTLE23.png'
         },
