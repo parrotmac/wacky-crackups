@@ -28,12 +28,12 @@ $desktop-x-margins: 0;
 }
 
 
-$patty-duration-multiplier: 1;
+$patty-duration-multiplier: 2;
 @mixin patty-animation {
-  //@include patty-animation-throwingStar();
+  // @include patty-animation-throwingStar();
   //@include patty-animation-fadeInOut();
   @include patty-animation-spinFade();
-  //@include patty-animation-shrinkLeft();
+  // @include patty-animation-shrinkLeft();
 }
 
 $burger-size: 60px;

@@ -53,12 +53,16 @@ $dino-head-desktop-size-delta: 80px;
 
     .copy-tagline {
       @include wacky-colored();
-      font-size: 65px;
+      font-size: 55px;
+      @include media-breakpoint-up(md) {
+        font-size: 65px;
+      }
     }
 
 
     .copy-heads-n-points {
       display: flex;
+      justify-content: space-between;
       flex-direction: column;
       @include media-breakpoint-up(md) {
         flex-direction: row;
@@ -76,9 +80,11 @@ $dino-head-desktop-size-delta: 80px;
 
     }
     .copy-head {
-
+      >img {
+        width: 150px;
+      }
     }
-    .copy-head-dino {
+    .copy-head-superhero {
       display: none;
       @include media-breakpoint-up(md) {
         display: block;
@@ -97,7 +103,6 @@ $dino-head-desktop-size-delta: 80px;
         max-width: 180px;
       }
     }
-
 
     .talking {
       @include montserrat-font();
