@@ -63,7 +63,9 @@ $dino-head-desktop-size-delta: 80px;
     .copy-heads-n-points {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-direction: column;
+      margin-bottom: 20px;
       @include media-breakpoint-up(md) {
         flex-direction: row;
       }
@@ -72,6 +74,7 @@ $dino-head-desktop-size-delta: 80px;
       .selling-points {
         text-align: left;
         font-weight: bold;
+        font-size: 16px;
         @include montserrat-font();
         > p {
           margin: 0;
@@ -81,11 +84,15 @@ $dino-head-desktop-size-delta: 80px;
     }
     .copy-head {
       >img {
-        width: 150px;
+        max-width: 170px;
+        max-height: 170px;
       }
     }
     .copy-head-superhero {
       display: none;
+      >img {
+        max-height: 135px;
+      }
       @include media-breakpoint-up(md) {
         display: block;
       }
