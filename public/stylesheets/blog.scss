@@ -1,5 +1,16 @@
 @import "colors.scss";
-@import "mixins";
+@import "mixins.scss";
+
+.blog-page-title {
+  @include crackup-font;
+  color: black;
+}
+
+.blog-page-subtitle {
+  @include montserrat-font;
+  font-weight: bold;
+  color: black;
+}
 
 .blog-post-preview {
   padding: 15px;
