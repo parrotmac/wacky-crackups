@@ -4,7 +4,6 @@
 .tandc {
   @include wacky-box;
   padding: 15px;
-  text-align: justify;
 
   h2{
     @include crackup-font();
