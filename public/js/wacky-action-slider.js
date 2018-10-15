@@ -17,6 +17,25 @@ const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
     let velocity = 0;
     let windowWidth = window.innerWidth;
 
+    const setFabVisibility = (fabElement, shown) => {
+        fabElement.style.display = shown?"block":"none";
+    }
+
+    const notifyFabOfOffset = (newPostition) => {
+        if(newPostition === 0) {
+            setFabVisibility(leftFab, false);
+        } else {
+            setFabVisibility(leftFab, true);
+        }
+
+        if (Math.abs(newPostition) === getMaxOffset()) {
+            setFabVisibility(rightFab, false);
+        } else {
+            setFabVisibility(rightFab, true);
+        }
+    };
+    notifyFabOfOffset(0);
+
     const _setElementOffset = (el, offset) => {
         el.style.marginLeft = `${offset}px`;
     };
@@ -25,6 +44,7 @@ const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
         const instanceDelta = (delta + sledPosition);
         const velocityAdjustedDelta = instanceDelta + (delta * 0.5); // TODO: Add scroll effect using velocity
         clampedDelta = clamp(velocityAdjustedDelta, -getMaxOffset(), 0);
+        notifyFabOfOffset(clampedDelta);
         _setElementOffset(characterSled, clampedDelta);
     };
 
@@ -56,10 +76,6 @@ const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
     imgs.forEach(img =>
         img.addEventListener("dragstart", evt => evt.preventDefault())
     );
-
-    const _setFabVisibility = (fabElement, shown) => {
-        fabElement.style.display = shown?"block":"none";
-    }
 
     const leftFabClick = () => {
         sledPosition = clampedDelta;
