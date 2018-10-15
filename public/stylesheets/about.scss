@@ -51,6 +51,10 @@ $dino-head-desktop-size-delta: 80px;
       padding: 0 60px;
     }
 
+    > p {
+      padding: 10px;
+    }
+
     .copy-brand {
       @include crackup-font;
       color: #000000;

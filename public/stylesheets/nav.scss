@@ -61,26 +61,40 @@ nav.nav-main {
   }
 
   .links {
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: flex-end;
     margin-top: 10px;
-
     @include media-breakpoint-up(md) {
-      display: flex;
       flex-direction: row;
       width: auto;
     }
+
     &.open {
-      display: flex;
+      > a {
+        margin-top: 20px;
+        padding: 5px 5px;
+        height: 30px;
+        // &:nth-child(1) { left: 0; }
+        // &:nth-child(2) { left: 0; }
+        // &:nth-child(3) { left: 0; }
+        // &:nth-child(4) { left: 0; }
+      }
     }
-
-
     a {
+      position: relative;
       display: block;
-      padding: 5px;
-      margin-top: 20px;
+      overflow: hidden;
+      padding: 0 5px;
+      margin-top: 0;
+      height: 0;
+      transition: all 500ms linear;
+
+      // &:nth-child(1) { left: 60px; }
+      // &:nth-child(2) { left: -60px; }
+      // &:nth-child(3) { left: 30px; }
+      // &:nth-child(4) { left: -30px; }
 
       @include media-breakpoint-up(md) {
         font-size: 16px;
