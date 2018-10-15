@@ -8,7 +8,7 @@
 $talking-text-color: rgb(86, 135, 117);
 $copy-y-spacing: 35px;
 
-$dino-head-offset: 80px;
+$dino-head-offset: 65px;
 $dino-head-desktop-offset-delta: 20px;
 $dino-head-size: 120px;
 $dino-head-desktop-size-delta: 80px;
@@ -41,7 +41,7 @@ $dino-head-desktop-size-delta: 80px;
   /* <article> */
   .main-page-copy {
 
-    margin-top: -($dino-head-offset/1.25);
+    margin-top: -(($dino-head-offset) - 10);
     @include media-breakpoint-up(md) {
       margin-top: -(($dino-head-offset + $dino-head-desktop-offset-delta)/1.5);
     }
@@ -51,15 +51,34 @@ $dino-head-desktop-size-delta: 80px;
       padding: 0 60px;
     }
 
+    > p {
+      padding: 10px;
+    }
+
+    .copy-brand {
+      @include crackup-font;
+      color: #000000;
+      font-size: 26px;
+      @include media-breakpoint-up(md) {
+        font-size: 40px;
+      }
+    }
+
     .copy-tagline {
       @include wacky-colored();
-      font-size: 65px;
+      font-size: 55px;
+      @include media-breakpoint-up(md) {
+        font-size: 65px;
+      }
     }
 
 
     .copy-heads-n-points {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       flex-direction: column;
+      margin-bottom: 20px;
       @include media-breakpoint-up(md) {
         flex-direction: row;
       }
@@ -67,7 +86,8 @@ $dino-head-desktop-size-delta: 80px;
 
       .selling-points {
         text-align: left;
-        font-weight: bold;
+        font-weight: 700;
+        font-size: 16px;
         @include montserrat-font();
         > p {
           margin: 0;
@@ -76,9 +96,26 @@ $dino-head-desktop-size-delta: 80px;
 
     }
     .copy-head {
-
+      >img {
+        max-width: 150px;
+        max-height: 150px;
+        margin: 20px 0;
+      }
     }
-    .copy-head-dino {
+    .copy-head-superhero {
+      >img {
+        display: block;
+        margin: 0 auto;
+        max-height: 135px;
+      }
+    }
+    .ch-superhero-mobile {
+      display: block;
+      @include media-breakpoint-up(md) {
+        display: none;
+      }
+    }
+    .ch-superhero-desktop {
       display: none;
       @include media-breakpoint-up(md) {
         display: block;
@@ -94,10 +131,18 @@ $dino-head-desktop-size-delta: 80px;
       >img {
         display: block;
         margin: 0 auto;
-        max-width: 180px;
       }
     }
-
+    .copy-head-below-points {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      @include media-breakpoint-up(md) {
+        width: auto;
+      }
+    }
 
     .talking {
       @include montserrat-font();

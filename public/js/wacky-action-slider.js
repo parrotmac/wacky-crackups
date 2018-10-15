@@ -1,4 +1,4 @@
-const WackyActionSlide = (slideWrapper, characterSled) => {
+const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
 
     // Returns viewable width of wrapper
     const getWrapperWidth = () => slideWrapper.offsetWidth;
@@ -56,11 +56,32 @@ const WackyActionSlide = (slideWrapper, characterSled) => {
     imgs.forEach(img =>
         img.addEventListener("dragstart", evt => evt.preventDefault())
     );
+
+    const _setFabVisibility = (fabElement, shown) => {
+        fabElement.style.display = shown?"block":"none";
+    }
+
+    const leftFabClick = () => {
+        sledPosition = clampedDelta;
+        // characterSled.style.transition = "margin 125ms linear";
+        setLeftDelta( getWrapperWidth() * 0.8 );
+        // characterSled.style.transition = "";
+    }
+    const rightFabClick = () => {
+        sledPosition = clampedDelta;
+        // characterSled.style.transition = "margin 125ms linear";
+        setLeftDelta( -( getWrapperWidth() * 0.8 ) );
+        // characterSled.style.transition = "";
+    }
+    leftFab.addEventListener('click', leftFabClick, false);
+    rightFab.addEventListener('click', rightFabClick, false);
 };
 
 const slideWrapper = document.querySelector("#characterSledWrapper");
 const characterSled = document.querySelector("#characterSled");
+const leftFab = document.querySelector("#leftSledFAB");
+const rightFab = document.querySelector("#rightSledFAB");
 
-if(slideWrapper !== null && characterSled !== null) {
-    WackyActionSlide(slideWrapper, characterSled);
+if(slideWrapper !== null) {
+    WackyActionSlide(slideWrapper, characterSled, leftFab, rightFab);
 }

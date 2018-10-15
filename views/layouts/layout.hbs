@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
-    <title>{{title}}</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <title>{{{title}}}</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/fonts/MyFontsWebfontsKit.css"/>
     <style type="text/css">
         .FlawlessFlygirlPB-Regular { font-family: FlawlessFlygirlPB-Regular, sans-serif; }
@@ -61,5 +61,8 @@
 <script src="/hammer.min.js"></script>
 <script src="/js/video_popup.js"></script>
 <script src="/js/wacky-action-slider.js"></script>
+<script>
+    // const BLUE_MAX=140;const BLUE_MIN=90;let positive=true;let blue=BLUE_MIN;setInterval(()=>{document.body.style.backgroundColor=`rgb(110, 167, ${blue})`;if(blue>=BLUE_MAX){positive=false}else if(blue<=BLUE_MIN){positive=true};if(positive){blue++}else{blue--}}, 100);
+</script>
 </body>
 </html>

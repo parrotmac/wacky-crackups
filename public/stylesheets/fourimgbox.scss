@@ -1,29 +1,71 @@
+//noinspection CssUnknownTarget
+@import "bootstrap/scss/functions";
+//noinspection CssUnknownTarget
+@import "bootstrap/scss/variables";
+//noinspection CssUnknownTarget
+@import "bootstrap/scss/mixins/breakpoints";
 @import "mixins.scss";
 
-#characterSledWrapper {
-  @include wacky-box();
-  overflow: hidden;
-  padding: 8px;
+$sled-img-height: 340px;
+$sled-padding: 8px;
 
-  #characterSled {
+.screenshot-sled {
+  padding: 0;
 
-    display: flex;
-    justify-content: space-between;
-    position: relative;
+  #characterSledWrapper {
+    @include wacky-box;
+    overflow: hidden;
+    padding: $sled-padding;
 
-    .scroll-card-img {
-      height: 340px;
+    #characterSled {
+      // transition: margin 125ms linear;
+
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+
+      .scroll-card-img {
+        height: $sled-img-height;
+      }
+      .scroll-card {
+        display: block;
+        padding-left: 8px;
+      }
+      &>:first-child {
+        padding-left: 0;
+      }
+      &>:last-child {
+        padding-right: 16px;
+      }
+
     }
-    .scroll-card {
+  }
+
+  $fab-size: 60px;
+  .wacky-fab {
+    display: none;
+    @include media-breakpoint-up(md) {
+
       display: block;
-      padding-left: 8px;
-    }
-    &>:first-child {
-      padding-left: 0;
-    }
-    &>:last-child {
-      padding-right: 16px;
-    }
+      position: absolute;
+      top: ($sled-img-height / 2) - ($fab-size/2);
+      height: $fab-size;
+      width: $fab-size;
+      border-radius: $fab-size/2;
+      transition: transform 125ms linear, box-shadow 125ms linear;
 
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.1);
+      }
+    }
+    &.wf-left {
+      left: -($fab-size/2);
+      right: auto;
+    }
+    &.wf-right {
+      left: auto;
+      right: -($fab-size/2);
+    } 
   }
 }

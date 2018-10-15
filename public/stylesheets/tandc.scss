@@ -1,6 +1,12 @@
+@import "colors.scss";
+@import "mixins";
+
 .tandc {
+  @include wacky-box;
+  padding: 15px;
 
   h2{
+    @include crackup-font();
     text-align: center;
   }
 }
