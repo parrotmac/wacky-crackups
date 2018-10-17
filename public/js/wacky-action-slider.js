@@ -18,7 +18,11 @@ const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
     let windowWidth = window.innerWidth;
 
     const setFabVisibility = (fabElement, shown) => {
-        fabElement.style.display = shown?"block":"none";
+        if(shown) {
+            fabElement.classList.add("shown");
+        } else {
+            fabElement.classList.remove("shown");
+        }
     }
 
     const notifyFabOfOffset = (newPostition) => {
