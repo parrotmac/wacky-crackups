@@ -81,6 +81,15 @@ $char-img-desktop-y-padding: 20px;
         margin: 0;
       }
 
+      .dumb-breaker {
+        @include media-breakpoint-down(xs) {
+          &::before {
+            content: "\A";
+            white-space: pre;
+          }
+        }
+      }
+
       &>p {
         display: none;
         font-size: 14px;
