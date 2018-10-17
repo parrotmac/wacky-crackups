@@ -18,7 +18,10 @@ $sled-padding: 8px;
     padding: $sled-padding;
 
     #characterSled {
-      // transition: margin 125ms linear;
+      transition: margin 125ms linear;
+      &.no-transition {
+        transition: none;
+      }
 
       display: flex;
       justify-content: space-between;
