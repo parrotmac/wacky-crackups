@@ -18,7 +18,10 @@ $sled-padding: 8px;
     padding: $sled-padding;
 
     #characterSled {
-      // transition: margin 125ms linear;
+      transition: margin 125ms linear;
+      &.no-transition {
+        transition: none;
+      }
 
       display: flex;
       justify-content: space-between;
@@ -45,8 +48,9 @@ $sled-padding: 8px;
   .wacky-fab {
     display: none;
     @include media-breakpoint-up(md) {
-
-      display: block;
+      &.shown {
+        display: block;
+      }
       position: absolute;
       top: ($sled-img-height / 2) - ($fab-size/2);
       height: $fab-size;

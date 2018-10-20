@@ -18,7 +18,11 @@ const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
     let windowWidth = window.innerWidth;
 
     const setFabVisibility = (fabElement, shown) => {
-        fabElement.style.display = shown?"block":"none";
+        if(shown) {
+            fabElement.classList.add("shown");
+        } else {
+            fabElement.classList.remove("shown");
+        }
     }
 
     const notifyFabOfOffset = (newPostition) => {
@@ -40,6 +44,14 @@ const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
         el.style.marginLeft = `${offset}px`;
     };
 
+    const setTransitionEnabled = enable => {
+        if(enable) {
+            characterSled.classList.remove("no-transition");
+        } else {
+            characterSled.classList.add("no-transition");
+        }
+    }
+
     const setLeftDelta = delta => {
         const instanceDelta = (delta + sledPosition);
         const velocityAdjustedDelta = instanceDelta + (delta * 0.5); // TODO: Add scroll effect using velocity
@@ -58,11 +70,13 @@ const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
     const mc = new Hammer.Manager(characterSled, {});
     mc.add( new Hammer.Pan({ direction: Hammer.DIRECTION_HORIZONTAL, threshold: 10 }) );
     mc.on("panstart", () => {
+        setTransitionEnabled(false);
         velocity = 0;
         sledPosition = clampedDelta;
     });
     mc.on('panleft', panHandler);
     mc.on('panright', panHandler);
+    mc.on('panend', () => setTransitionEnabled(true));
     window.addEventListener("resize", () => {
         const newWidth = window.innerWidth;
         if(newWidth !== windowWidth) {
