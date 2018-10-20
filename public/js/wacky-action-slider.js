@@ -1,5 +1,7 @@
 const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
 
+    const CLICK_MOVE_MULTIPLIER = 0.3; // Move 30% per click
+
     // Returns viewable width of wrapper
     const getWrapperWidth = () => slideWrapper.offsetWidth;
 
@@ -93,15 +95,11 @@ const WackyActionSlide = (slideWrapper, characterSled, leftFab, rightFab) => {
 
     const leftFabClick = () => {
         sledPosition = clampedDelta;
-        // characterSled.style.transition = "margin 125ms linear";
-        setLeftDelta( getWrapperWidth() * 0.8 );
-        // characterSled.style.transition = "";
+        setLeftDelta( getWrapperWidth() * CLICK_MOVE_MULTIPLIER );
     }
     const rightFabClick = () => {
         sledPosition = clampedDelta;
-        // characterSled.style.transition = "margin 125ms linear";
-        setLeftDelta( -( getWrapperWidth() * 0.8 ) );
-        // characterSled.style.transition = "";
+        setLeftDelta( -( getWrapperWidth() * CLICK_MOVE_MULTIPLIER ) );
     }
     leftFab.addEventListener('click', leftFabClick, false);
     rightFab.addEventListener('click', rightFabClick, false);
