@@ -5,55 +5,57 @@
 //noinspection CssUnknownTarget
 @import "bootstrap/scss/mixins/breakpoints";
 @import "mixins";
+@import "colors";
 
 .c2a-wrapper {
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  flex-direction: row;
-  padding: 5px 0;
-  @include media-breakpoint-up(md) {
-    padding: 8px 0;
-  }
-  @include wacky-box();
+
+  padding: 4px 10px;
+  // @include media-breakpoint-up(md) {
+  //   padding: 4px 20px;
+  // }
+
+  border: 2px solid black;
+  border-radius: 200px;
+  background-color: white;
 
   .c2a-text {
-    display: flex;
-    flex-direction: column;
-    @include media-breakpoint-up(md) {
-      flex-direction: row;
-    }
+    @include crackup-font;
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+    line-height: 0;
+  }
 
-    .c2a-text-main, .c2a-text-sub {
-      color: black;
-      text-align: center;
-    }
-    .c2a-text-main {
-      @include crackup-font();
-      line-height: 18px;
-      margin: 0;
-      padding: 0;
-      font-size: 28px;
-      @include media-breakpoint-up(md) {
-        font-size: 32px;
-        line-height: 32px;
-        margin: 0 10px;
-      }
-    }
-    .c2a-text-sub {
-      @include montserrat-font();
-      font-weight: 900;
-      font-size: 24px;
-      @include media-breakpoint-up(md) {
-        font-size: 28px;
-      }
-      margin: 0;
-      padding: 0;
+  .c2a-mobile-only {
+    display: inline;
+    @include media-breakpoint-up(md) {
+      display: none;
     }
   }
+  .c2a-desktop-only {
+    display: none;
+    @include media-breakpoint-up(md) {
+      display: inline;
+    }
+  }
+
+  .c2a-when {
+    color: $dino-head-purple;
+  }
+
   .c2a-badge {
-    > a > img {
+    display: block;
+    padding: 0;
+    margin: 0;
+    > img {
+      display: block;
       height: 42px;
+      padding: 0;
+      margin: 0;
     }
   }
 }
