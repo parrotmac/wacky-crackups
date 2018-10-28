@@ -14,6 +14,9 @@ const usersRouter = require('./routes/users');
 
 const app = express();
 
+// Discourage hax0rs
+app.disable('x-powered-by');
+
 // view engine setup
 const expressHandlebarsConfig = {
     layoutsDir: 'views/layouts/',
@@ -30,6 +33,7 @@ const expressHandlebarsConfig = {
             }
             return arg1.indexOf(arg2) === 0
         },
+        json: json => JSON.stringify(json),
     }
 };
 app.engine('hbs', exphbs(expressHandlebarsConfig));
