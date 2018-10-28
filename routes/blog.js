@@ -60,7 +60,8 @@ router.get('/', function(req, res, next) {
                                     next: nextPageNumber,
                                     prev: prevPageNumber,
                                     current: pageNumber
-                                }
+                                },
+                                pageName: 'blog'
                             }
                         )
                     }
@@ -87,7 +88,8 @@ router.get('/posts/:id/:slug', function(req, res, next) {
                 const {title} = postJson;
                 res.render('blogPost', {
                     title: `Blog - ${title['rendered']}`,
-                    blogPost: postJson
+                    blogPost: postJson,
+                    pageName: 'blogPost'
                 })
             }
         )

@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('about', { title: 'Wacky Crackups' });
+    res.render('about', { title: 'Wacky Crackups', pageName: 'home' });
 });
 
 router.get('/about', function(req, res, next) {
@@ -26,12 +26,13 @@ router.get('/support', function(req, res, next) {
         title: 'Support',
         showThanks: thankYou,
         thanksReturnURL: thanksReturnURL,
-        feedbackEmail: feedbackEmail
+        feedbackEmail: feedbackEmail,
+        pageName: 'support'
     });
 });
 
 router.get('/legal', function(req, res, next) {
-    res.render('tandc', { title: 'Terms and Conditions' });
+    res.render('tandc', { title: 'Terms and Conditions', pageName: 'legal' });
 });
 
 router.get('/characters', function(req, res, next) {
@@ -88,7 +89,7 @@ router.get('/characters', function(req, res, next) {
         },
     ];
 
-    res.render('characters', { title: 'Characters', characters: characters })
+    res.render('characters', { title: 'Characters', characters: characters, pageName: 'characters' })
 });
 
 module.exports = router;
