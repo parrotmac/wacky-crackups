@@ -4,6 +4,7 @@
 @import "bootstrap/scss/variables";
 //noinspection CssUnknownTarget
 @import "bootstrap/scss/mixins/breakpoints";
+@import "colors";
 
 $mobile-x-margins: 0;
 $desktop-x-margins: 0;
@@ -106,11 +107,20 @@ nav.nav-main {
       font-size: 20px;
 
       &:link, &:visited {
-        color: #FFFFFF;
+        color: $text-color;
       }
 
       &.active {
-        color: #FFFFFF;
+        color: $text-color;
+        text-decoration: underline;
+      }
+    }
+    &.links-inverted > a {
+      &:link, &:visited {
+        color: $text-color-inverted;
+      }
+      &.active {
+        color: $text-color-inverted;
         text-decoration: underline;
       }
     }

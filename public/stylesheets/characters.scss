@@ -1,9 +1,14 @@
+@import "colors";
+
+body.characters {
+  background-color: $background-color-characters;
+}
 
 .character-header {
   color: #FFFFFF;
 }
 
-.characters{
+.character-grid{
   div{
     display: flex;
     flex-direction: column;
@@ -14,7 +19,6 @@
       display:block;
       height: auto;
     }
-
   }
 }
 

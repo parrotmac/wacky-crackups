@@ -1,6 +1,10 @@
 @import "colors.scss";
 @import "mixins.scss";
 
+body.blog, body.blogPost {
+  background-color: white;  
+}
+
 .blog-page-subtitle {
   @include montserrat-font;
   font-weight: bold;
