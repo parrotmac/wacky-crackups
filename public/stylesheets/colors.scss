@@ -3,6 +3,11 @@ This file shouldn't be included directly into HTML. Rather, use `@import "colors
 access to the contents of this file.
  */
 
-$background-base-color: #6da992;
+$background-color-default: #2fa495; // 47, 164, 149 -- Homepage/About and Support pages
+$background-color-characters: #0db0ac; //  13, 176, 172 -- Character page
+$background-color-support: #FFFFFF;
 $primary-text-color: #FFFFFF;
 $dino-head-purple: #c770f3;
+
+$text-color: #FFFFFF;
+$text-color-inverted: #000000;

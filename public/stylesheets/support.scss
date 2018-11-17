@@ -1,4 +1,9 @@
 @import "mixins";
+@import "colors";
+
+body.support {
+  background-color: $background-color-default;
+}
 
 .support-main, .support-sub, .support-thanks {
   @include wacky-box;

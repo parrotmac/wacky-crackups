@@ -8,8 +8,6 @@ html {
 body {
   margin-bottom: 60px;
   flex-direction: column;
-  background-size: cover;
-  background: rgb(110, 167, 134) no-repeat;
   @include montserrat-font();
 }
 

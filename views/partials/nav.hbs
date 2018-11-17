@@ -1,17 +1,27 @@
 <nav class="nav-main">
     <header class="wacky-header">
         <a href="/">
-            <img src="/images/stacked-logo.png" class="logo pb-0">
+            {{#if (areEqual style 'inverted')}}
+            <img src="/images/stacked-logo-black-500.png" class="logo pb-0">
+            {{else}}
+            <img src="/images/stacked-logo-white-500.png" class="logo pb-0">
+            {{/if}}
         </a>
         <div class="burger-wrapper"><!-- Controls major positioning of burger -->
             <div class="burger-bun" id="navBurger" data-nav-target="#wacky-nav-links"><!-- Contains lines -->
-                <img src="/images/hamburger-patty.svg" class="burger-patty" />
-                <img src="/images/hamburger-patty.svg" class="burger-patty" />
-                <img src="/images/hamburger-patty.svg" class="burger-patty" />
+            {{#if (areEqual style 'inverted')}}
+                <img src="/images/hamburger-patty-black.svg" class="burger-patty" />
+                <img src="/images/hamburger-patty-black.svg" class="burger-patty" />
+                <img src="/images/hamburger-patty-black.svg" class="burger-patty" />
+            {{else}}
+                <img src="/images/hamburger-patty-white.svg" class="burger-patty" />
+                <img src="/images/hamburger-patty-white.svg" class="burger-patty" />
+                <img src="/images/hamburger-patty-white.svg" class="burger-patty" />
+            {{/if}}
             </div>
         </div>
     </header>
-    <div class="links" id="wacky-nav-links">
+    <div class="{{styleSuffix "links" style}}" id="wacky-nav-links">
         <a href="/characters" class="pt-0 pt-md-3 {{#if (areEqual currentPath '/characters')}}active{{/if}}">Characters</a>
         <a href="/blog" class="pt-0 pt-md-3 {{#if (startsWith currentPath '/blog')}}active{{/if}}">Blog</a>
         <a href="/support" class="pt-0 pt-md-3 {{#if (startsWith currentPath '/support')}}active{{/if}}">Support</a>

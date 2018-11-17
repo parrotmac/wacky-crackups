@@ -4,6 +4,7 @@
 @import "bootstrap/scss/variables";
 //noinspection CssUnknownTarget
 @import "bootstrap/scss/mixins/breakpoints";
+@import "colors";
 @import "mixins.scss";
 $talking-text-color: rgb(86, 135, 117);
 $copy-y-spacing: 35px;
@@ -12,6 +13,10 @@ $dino-head-offset: 65px;
 $dino-head-desktop-offset-delta: 20px;
 $dino-head-size: 120px;
 $dino-head-desktop-size-delta: 80px;
+
+body.home {
+  background-color: $background-color-default;
+}
 
 @mixin wacky-colored {
   color: $talking-text-color;
