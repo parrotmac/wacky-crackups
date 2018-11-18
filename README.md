@@ -1,4 +1,5 @@
 # Wacky-Crackups
+[![Build Status](https://travis-ci.org/parrotmac/wacky-crackups.svg?branch=master)](https://travis-ci.org/parrotmac/wacky-crackups)
 ## Local Development
 ### Installation
 Requirements:
