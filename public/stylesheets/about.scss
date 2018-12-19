@@ -71,7 +71,8 @@ body.home {
 
     .copy-tagline {
       @include wacky-colored();
-      font-size: 55px;
+      font-size: 44px;
+      line-height: 1;
       @include media-breakpoint-up(md) {
         font-size: 65px;
       }
