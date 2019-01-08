@@ -5,8 +5,8 @@
 //noinspection CssUnknownTarget
 @import "bootstrap/scss/mixins/breakpoints";
 
-$char-img-desktop-x-padding: 30px;
-$char-img-desktop-y-padding: 20px;
+$char-img-desktop-x-padding: 20px;
+$char-img-desktop-y-padding: 10px;
 
 @mixin padding-x($paddingVal) {
   padding-left: $paddingVal;
