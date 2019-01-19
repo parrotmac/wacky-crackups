@@ -2,7 +2,7 @@
 @import "mixins.scss";
 
 body.blog, body.blogPost {
-  background-color: white;  
+  background-color: white;
 }
 
 .blog-page-subtitle {
@@ -37,4 +37,60 @@ article {
 .fit{
   max-width: 300px;
   height: auto;
+}
+
+.blog-header-wrapper {
+  // TODO: Determine if mobilebg is desired
+  // One branch has this (+background-size) and the other doesn't
+  background: #2c99b2 url(mobilebg.jpg) no-repeat center center;
+  background-size: cover;
+  text-align: center;
+}
+.blog-header {
+  padding: 9% 20px;
+}
+
+.blog-header-wrapper h2, .blog-header-wrapper h5 {
+  color: #ffffff;
+  text-align: center;
+  font-weight: normal;
+}
+
+.blog .page-title {
+  font-size: 50px;
+  line-height: .9;
+  max-width: 270px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: FlawlessFlygirlPB-Regular, sans-serif;
+  font-weight: normal;
+}
+@media screen and (min-width:500px) {
+  .blog .page-title {
+    font-size: 60px;
+  }
+}
+@media screen and (min-width:700px) {
+  .blog-header-wrapper {
+    background: #2c99b2 url(blogheader2.jpg) no-repeat top right;
+    background-size: contain;
+    text-align: center;
+    padding-right: 250px;
+  }
+  .blog .page-title {
+    font-size: 80px;
+  }
+}
+@media screen and (min-width:1000px) {
+  .blog-header-wrapper {
+    background: #2c99b2 url(blogheader1.jpg) no-repeat top left;
+    background-size: contain;
+    text-align: center;
+    padding-right: 0;
+  }
+  .blog-header {
+    background: url(blogheader2.jpg) no-repeat top right;
+    background-size: contain;
+    padding: 9% 30px;
+  }
 }
