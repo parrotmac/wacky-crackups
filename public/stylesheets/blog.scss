@@ -72,7 +72,7 @@ article {
 }
 @media screen and (min-width:700px) {
   .blog-header-wrapper {
-    background: #2c99b2 url(blogheader2.jpg) no-repeat top right;
+    background: #2c99b2 url(/images/blogheader2.jpg) no-repeat top right;
     background-size: contain;
     text-align: center;
     padding-right: 250px;
@@ -83,13 +83,13 @@ article {
 }
 @media screen and (min-width:1000px) {
   .blog-header-wrapper {
-    background: #2c99b2 url(blogheader1.jpg) no-repeat top left;
+    background: #2c99b2 url(/images/blogheader1.jpg) no-repeat top left;
     background-size: contain;
     text-align: center;
     padding-right: 0;
   }
   .blog-header {
-    background: url(blogheader2.jpg) no-repeat top right;
+    background: url(/images/blogheader2.jpg) no-repeat top right;
     background-size: contain;
     padding: 9% 30px;
   }
