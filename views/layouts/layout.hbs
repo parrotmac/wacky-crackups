@@ -40,13 +40,17 @@
         </div>
     </div>
 </div>
+{{#if (startsWith currentPath '/blog')}}{{else}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-xl-8 col-lg-10">
+{{/if}}
             {{{body}}}
+{{#if (startsWith currentPath '/blog')}}{{else}}
         </div>
     </div>
 </div>
+{{/if}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-xl-8 col-lg-10">
